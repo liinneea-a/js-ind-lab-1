@@ -1,0 +1,48 @@
+:root {
+    --text-max-width: 40rem;
+}
+
+body {
+    background-color: #363636;
+    color: #EEE;
+    height: 100vh;
+    font-family: monospace, sans-serif;
+    font-size: 20px;
+    
+}
+
+.container {
+    width: 40rem;
+    height: 30rem;
+}
+
+.text-container {
+    flex-direction: column;
+    width: var(--text-max-width);
+    height: 20rem;
+    
+}
+p {
+    max-width: var(--text-max-width);
+    text-align: center;
+    height: 100%;
+    display: inline;
+    
+}
+button {
+    border: #000 solid 2px;
+    background-color: inherit;
+    height: 40px;
+    border-radius: 50px;
+    min-width: 100px;
+    
+}
+.btn-container {
+    width: 100%;
+    justify-content: space-around;
+}
+
+.flex {display: flex;}
+.align-center {align-items: center;}
+.justify-center {justify-content: center;}
+.border {border: solid white 2px}
