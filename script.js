@@ -1,5 +1,6 @@
 window.onload = main;
 
+let text = document.querySelector('p');
 
 function main() {
     wakingUp();
@@ -27,7 +28,9 @@ function wakingUp() {
 }
 
 function ChocolateFlood() {
-    
+    document.getElementById('infoField').innerHTML = "Du närmar dig floden";
+    btn1.innerHTML = "Slå tillbaka";
+    btn1.onclick = hitBackFunction;
    
 }
 
@@ -37,5 +40,9 @@ function tastingGrass() {
 
 function lickingTree() {
    
+}
+
+function hitBackFunction() {
+    console.log(text);
 }
 
