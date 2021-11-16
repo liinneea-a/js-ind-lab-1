@@ -25,7 +25,8 @@ function addEventListener() {
 function room1() {
     wakingUp();
     showBtnForward();
-
+const input = document.querySelector('input').value;
+input.value = ""
     function wakingUp() {
         text.innerText = "Du vaknar till liv. Dina tankar börjar frenetiskt arbeta med att erinra sig händelseförloppet som förde dig hit. VÄNTA. Vart är jag?  Du öppnar långsamt ögonen. Vilket visar sig vara fullkomligt onödigt för det är kolsvart runt omkring dig, med undantag för suddiga konturer av… ja, vadå? Du börjar ta in miljön omkring. Marken under dig är mjuk-, eller nej. Fluffig är ett bättre ord. Marken är fluffig";
         btnForwardText.innerHTML = "Vill du fortsätta?";
