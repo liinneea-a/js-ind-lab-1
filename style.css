@@ -35,13 +35,14 @@ button {
     height: 40px;
     border-radius: 50px;
     min-width: 100px;
+    display: none;
+
     
 }
 .btn-container {
     width: 100%;
     justify-content: space-around;
-}
-
+} 
 .flex {display: flex;}
 .align-center {align-items: center;}
 .justify-center {justify-content: center;}
