@@ -35,9 +35,14 @@ button {
     height: 40px;
     border-radius: 50px;
     min-width: 100px;
-    display: none;
-
-    
+    display: none; 
+    font-family: monospace;   
+}
+button:hover {
+    background-color: rgba(0, 0, 0, 0.276);
+    color: rgba(238, 238, 238, 0.646);
+    border: rgba(0, 0, 0, 0.742);
+    cursor:pointer;
 }
 .btn-container {
     width: 100%;
