@@ -12,8 +12,14 @@ function addEventListener() {
 }
 
 function wakingUp() {
-    document.getElementById('infoField').innerHTML = "Du vaknar till liv";
+    document.getElementById('infoField').innerHTML = "Du vaknar till liv. Dina tankar börjar frenetiskt arbeta med att erinra sig händelseförloppet som förde dig hit. VÄNTA. Vart är jag?  Du öppnar långsamt ögonen. Vilket visar sig vara fullkomligt onödigt för det är kolsvart runt omkring dig, med undantag för suddiga konturer av… ja, vadå? Du börjar ta in miljön omkring. Marken under dig är mjuk-, eller nej. Fluffig är ett bättre ord. Marken är fluffig. Vad gör du härnäst?";
+    let btn3 = document.getElementById('btn3');
+    btn3.innerHTML = "Fortsätt";
+    btn3.onclick = chooseStepTwo();
+   
+}
 
+function chooseStepTwo() {
     let btn1 = document.getElementById('btn1');
     btn1.innerHTML = "Chokladtflod";
     btn1.onclick = ChocolateFlood;
