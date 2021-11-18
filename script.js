@@ -8,7 +8,6 @@ let btn3 = document.getElementById('btn3');
 let btn1Text = document.getElementById('btn1Text');
 let btn2Text = document.getElementById('btn2Text');
 let btn3Text = document.getElementById('btn3Text');
-let btnTextContainer = document.getElementById('btnTextContainer')
 let btnForward = document.getElementById('btnForward');
 
 let ageInput;
@@ -19,6 +18,7 @@ let text2;
 let polkagris;
 let chocoBath;
 let high;
+let stuck;
 
 
 const allBtns = [btn1, btn2, btn3];
@@ -166,33 +166,17 @@ function room2() {
     
     showAllBtns();
     btn1.innerHTML = "Choklad";
-    btn2.innerHTML = "Gräs";
+    // btn2.innerHTML = "Gräs";
     btn3.innerHTML = "Träd";
 
-    // function showAllBtns() {
-        
-
-        // setTimeout(function() {
-        //     btn1.style.display = 'inline-block';
-        // }, 2000);
-        // btn1.innerHTML = "Choklad"
-        
-        // setTimeout(function() {
-        //     btn2.style.display = 'inline-block';
-        // }, 2000);
-        // btn2.innerHTML = "Gräs"
-
-        // setTimeout(function() {
-        //     btn3.style.display ='inline-block';
-        // }, 2000);
-        // btn3.innerHTML = "Träd";
-        
-    // }
+ 
     btn1.onclick = roomChoco;
-    btn2.onclick = roomWeed;
+    // btn2.onclick = roomWeed;
     btn3.onclick = roomTree;
 }
-
+// function roomWeed() {
+//     text.innerHTML = ""
+// }
 function roomChoco() {
     hideForward();
     // btnForward.style.display = 'none';
@@ -266,15 +250,18 @@ function backToStart() {
     hideForward();
     // btnForward.style.display = "none";
 
-    if (chocoBath = true) {
+    if (chocoBath === true) {
         text.innerHTML = "Du tar dig tillbaka till samma plats där du tidigare vaknat. Naken, rädd, hungrig och bakfull. Du sätter dig ner under något som liknar ett träd men som doftar hallon. Du känner markens fluffighet mellan tårna. Hungern gör sig påmind och du väljer att...";
+    } else if (stuck === true) {
+        text.innerHTML = "Du tar dig tillbaka till samma plats där du tidigare vaknat. Rädd, hungrig, bakfull och djävulskt ont i tungan. Du ser trädet och känner doften av hallon. Du känner markens fluffighet mellan tårna. Hungern gör sig påmind och du väljer att...";
+        btn2.style.display = 'none';
     } else {
         text.innerHTML = "Du tar dig tillbaka till samma plats där du tidigare vaknat. Kladdig, rädd, hungrig och bakfull.  Du sätter dig ner under något som liknar ett träd men som doftar hallon. Du känner markens fluffighet mellan tårna. Hungern gör sig påmind och du väljer att...";
     }
 
     btn1.innerHTML = "..plocka upp en tuve fluffgräs och stoppar det i munnen";
     btn2.innerHTML = "..slicka på den hallondoftande trästammen";
-    btn1.onclick = roomWeed;
+    btn1.onclick = roomCottonCandy;
     btn2.onclick = roomTree;
 
 
@@ -289,11 +276,12 @@ function bath() {
 }
 
 
-function roomWeed() {
+function roomCottonCandy() {
     hideAllBtns();
     showForward();
+    btnForward.innerHTML = "Fortsätt";
     high = true;
-    text.innerHTML = "Sockervadd! Mer hinner du slocknar."
+    text.innerHTML = "Sockervadd! Mer hinner du inte tänka innan slocknar."
     btnForward.onclick = roomWeed2;
 }
 function roomWeed2() {
@@ -303,12 +291,35 @@ function roomWeed2() {
 }
 
 function roomTree() {
+    showForward();
+    hideAllBtns();
+    text.innerHTML = "Några meter framför dig ser du något som påminner om ett träd, men kronan har inga löv. Istället finns där kluster av rosa små bollar. Ju närmare du kommer detso starkare känner du en syntetisk doft av hallon. Väl framme lägger du handen mot det som kan liknas vid en stam. Kladdigt. Från ingenstans känner du ett enormt begär av att smaka. Du försöker stå emot... Men kanske bara en liten bit.."
+    btnForward.onclick = roomTree2;
+}
+function roomTree2() {
+    showTwoBtns();
+    hideForward();
 
+    if (stuck === true) {
+        text.innerHTML = "Stammen smakar fortfarande zoo-klubba. Och du har återigen två val.";
+        btn2.innerHTML = "Du står kvar och fortsätter hoppas att någon annan ska lösa ditt problem";
+    } else {
+        text.innerHTML = "Stammen smakar zoo-klubba. När du ska vända din om för att gå tillbaka inser du att du sitter fast. Aj. Det är som att du slickat på en lyktstolpe i minusgrader. Fast istället för att vara 5 år och dum är du " + age + " år och ännu dummare. Du står mellan 2 val. Vad gör du?";
+         btn2.innerHTML = "Du står kvar och hoppas att någon annan ska lösa ditt problem";
+    }
+    btn1.innerHTML = "Du fattar mod och rycker loss tungan";
+    btn1.onclick = backToStart;
+    btn2.onclick = roomTree3;
+    
+}
+function roomTree3() {
+    showForward();
+    hideAllBtns();
+    btnForward.innerHTML = "Gå tillbaka";
+    btnForward.onclick = roomTree2;
+    stuck = true;
+        text.innerHTML = "Där blir du stående. Det var ju dumt. "
 }
  function door() {
-    if (high === true) {
-        text.innerHTML = "Efter att förvirrat ha vandrat omkring och förundrats över meningslösa saker hittar du en dörr. På dörren finns en stor fördjupning som har formen av en stor polkagris.";
-    }
+     text.innerHTML = "Efter att förvirrat ha vandrat omkring och förundrats över meningslösa saker hittar du en dörr. På dörren finns en stor fördjupning som har formen av en stor polkagris. Bredvid dörren sitter en lapp.";
  }
-
-
