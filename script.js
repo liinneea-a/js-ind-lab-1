@@ -1,12 +1,12 @@
 window.onload = main;
 
-let text = document.querySelector('p');
+let text = document.getElementById('infoField');
 let btn1 = document.getElementById('btn1');
 let btn2 = document.getElementById('btn2');
 let btn3 = document.getElementById('btn3');
 let btnForward = document.getElementById('btnForward');
 let age;
-
+let text2;
 
 
 const allBtns = [btn1, btn2, btn3];
@@ -43,9 +43,15 @@ function introduction() {
         text.innerHTML = "Du funderar över vad du åstadkommit under dina år i livet. Nästa år fyller du "
         // document.getElementById('intro4Text').style.display = 'block';
         // btnForward.onclick = saveValue;
+        
         age = document.createElement('INPUT');
         age.setAttribute('type', 'text');
         text.appendChild(age);
+
+        text2 = document.createElement('span');
+        text.appendChild(text2);
+        text2.innerHTML =" och funderar över xx. Mitt uppe i ditt misära grubblande blir du avbruten av att telefonen börjar surra ";
+        
     }
     function saveValue() {
         // age = document.getElementById('intro4Text').value;

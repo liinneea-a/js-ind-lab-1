@@ -26,7 +26,7 @@ p {
     max-width: var(--text-max-width);
     text-align: center;
     height: 100%;
-    display: inline;
+    /* display: inline; */
     
 }
 button {
