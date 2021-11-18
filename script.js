@@ -20,6 +20,8 @@ let chocoBath;
 let noChocobath;
 let high;
 let stuck;
+let riddleAnswer;
+// let riddleInput;
 
 
 const allBtns = [btn1, btn2, btn3];
@@ -90,6 +92,7 @@ function introduction() {
 
     }
     function intro4() {
+
         text.innerHTML = "Du funderar över vad du åstadkommit under dina år i livet. Nästa år fyller du "
         // document.getElementById('intro4Text').style.display = 'block';
         // btnForward.onclick = saveValue;
@@ -97,31 +100,46 @@ function introduction() {
         ageInput = document.createElement('INPUT');
         ageInput.setAttribute('type', 'text');
         text.appendChild(ageInput);
+        
 
         text2 = document.createElement('span');
         text.appendChild(text2);
         text2.innerHTML =" och du funderar över om tillvaron kommer vara lika medioker som den varit hittills. Mitt uppe i ditt misära grubblande blir du avbruten av att telefonen börjar surra ";
-        btnForward.onclick = phonecall;
+        btnForward.onclick = checkAgeinput;
     }
-    function phonecall() {
+    function checkAgeinput() {
         age = ageInput.value;
-        text.innerHTML = "Du tar upp telefonen och ser ett nummer du inte känner igen. Säkert en telefonförsäljare. Med en bitter underton svarar du: 'Hallå? De e "
+        if (age === "") {
+            intro4();
+        } else {
+            phonecall();
+        }
+        function phonecall() {
+            text.innerHTML = "Du tar upp telefonen och ser ett nummer du inte känner igen. Säkert en telefonförsäljare. Med en bitter underton svarar du: 'Hallå? De e "
 
-        firstnameInput = document.createElement('INPUT');
-        firstnameInput.setAttribute('type', 'text');
-        text.appendChild(firstnameInput);
+            firstnameInput = document.createElement('INPUT');
+            firstnameInput.setAttribute('type', 'text');
+            text.appendChild(firstnameInput);
 
-        btnForward.onclick = continuePhonecall;
+            btnForward.onclick = checkName;
+        }
     }
-    
+    function checkName() {
+        firstname = firstnameInput.value;
+        if (firstname === "") {
+            phonecall();
+        } else {
+        continuePhonecall();
+        }
+    }
     function continuePhonecall() {
         btnForward.style.display = null;
-        let firstname = firstnameInput.value;
+        
         text.innerHTML = "NÄMEN!! Tjenare " + (firstname) + "! Hur e läget? Du ska inte me ut på en bärs sen?";
 
         setTimeout(function() {
             conversationAnswer();
-        }, 3000);
+        }, 2000);
 
     }
 
@@ -131,7 +149,7 @@ function introduction() {
 
         setTimeout(function() {
             room1();
-        }, 5000);
+        }, 2000);
        
     }
 }
@@ -175,7 +193,7 @@ function roomChoco() {
         showAllBtns();
         text.innerText= "Du slås av en impulsiv tanke att ta ett skutt rakt ner i det aptitretande badet men din rationella hjärnhalva säger stopp. Ett minne letar sig fram i ditt innre och du minns chokladfontänen du dröme om att ha på din 10e födelsedag. Den som alla 9åringar drömde om att ha på sin 10e födelsedag. Man kanske bara skulle smaka?";
         btn1.innerHTML = "Du böjer dig ner för att sörpla";
-        btn2.innerHTML = "Du slänger av dig kläderna och gör dig redo för ett dyk";
+        btn2.innerHTML = "Du slänger av kläderna och gör dig redo för ett dyk";
         btn3.innerHTML = "Rädslan för det okända kryper sig på. Du går tillbaka";
     }
 
@@ -204,12 +222,11 @@ function meetsOmpaLompa() {
 function meetsOmpaLompa2() {
     showForward();
     btnForward.onclick = hitBack;
-    text.innerHTML = "Den lille mannen skriker med en arg röst på ett språk du aldrig har hört tidigare sedan springer han iväg en bit bort. Mörkret sväljer hans konturer, men du hinner inte mer än att resa dig innan han kommer emot dig med full fart. Du känner en skarp smärta på smalbenen, sedan på ryggen. I sina händer har Ompalompan en giganstisk polkagris som han svingar runt i en övermänsklig hastighet."
+    text.innerHTML = "Den lille mannen skriker med en arg röst på ett språk du aldrig har hört tidigare sedan springer han iväg en bit bort. Mörkret sväljer hans konturer, men du hinner inte mer än att resa dig innan han kommer emot dig med full fart. Du känner en skarp smärta på smalbenen, sedan på ryggen. I sina händer har Ompalompan en giganstisk polkagris, minst lika stor som mannen sjäv. Han svingar runt den i en övermänsklig hastighet."
 }
 function hitBack() {
     hideForward();
     showTwoBtns();
-    
     btn1.innerHTML = "Tar polkagrisen och springer iväg";
     btn2.innerHTML = "Skiter fullständigt i polkagrisen och springer för kung och fosterland därifrån";
     text.innerHTML = "Instinktivt langar du iväg ett slag i självförsvar. Då du aldrig tidigare har misshandlat en Ompalompa är slaget mer anpassat efter medellång mänsklig storlek och den lille mannen tuppar av. Den gigantiska polkagrisen glider ur hans grepp. Vad gör du härnäst?"
@@ -230,7 +247,7 @@ function backToStart() {
     hideForward();
 
     if (chocoBath === true) {
-        text.innerHTML = "Du tar dig tillbaka till samma plats där du tidigare vaknat. Naken, rädd, hungrig och bakfull. Du sätter dig ner under något som liknar ett träd men som doftar hallon. Du känner markens fluffighet mellan tårna. Hungern gör sig påmind och du väljer att...";
+        text.innerHTML = "Du tar dig tillbaka till samma plats där du tidigare vaknat. Naken, rädd, hungrig och bakfull lunkar du fylld av självömkan vidare. Du känner markens fluffighet mellan tårna. Hungern gör sig påmind och du väljer att...";
     } else if (stuck === true) {
         text.innerHTML = "Du tar dig tillbaka till samma plats där du tidigare vaknat. Rädd, hungrig, bakfull och djävulskt ont i tungan. Du ser trädet och känner doften av hallon. Du känner markens fluffighet mellan tårna. Hungern gör sig påmind och du väljer att...";
         btn2.style.display = 'none';
@@ -239,7 +256,7 @@ function backToStart() {
     }
 
     btn1.innerHTML = "..plocka upp en tuve fluffgräs och stoppar det i munnen";
-    btn2.innerHTML = "..slicka på den hallondoftande trästammen";
+    btn2.innerHTML = "..gå mot hallondoften";
     btn1.onclick = roomCottonCandy;
     btn2.onclick = roomTree;
 
@@ -302,5 +319,59 @@ function roomTree3() {
         text.innerHTML = "Där blir du stående. Det var ju dumt. "
 }
  function door() {
-     text.innerHTML = "Efter att förvirrat ha vandrat omkring och förundrats över meningslösa saker hittar du en dörr. På dörren finns en stor fördjupning som har formen av en stor polkagris. Bredvid dörren sitter en lapp.";
- }
+    
+    text.innerHTML = "Efter att förvirrat ha vandrat omkring och förundrats över meningslösa saker hittar du en dörr. På dörren ser du en fördjupning. Något slags nyckelhål kanske? Den har formen av något avlångt, men en krok i änden - Kan det vara en giganisk polkagris? Bredvid dörren sitter en liten lapp.";
+    
+    if (polkagris === true) {
+        btn1.innerText = "Du skiter i lappen och langar fram polkagrisen!";
+        btn1.onclick = end;
+    } else {
+        btn1.innerHTML = "Vilken polkagris???"
+        btn1.onclick = "";
+    }
+    hideForward();
+    showTwoBtns();
+    btn2.innerHTML = "Den där lappen ser sådär lagom mystik ut..."
+    btn2.onclick = note;
+}
+function note() {
+    hideAllBtns();
+    showForward();
+    text.innerHTML = "Fortfarande aningen lullig av sockervadden läser du: 'Om du mot förmodan lyckats slarva bort den gigantiska polkagrisnyckeln så kan du låsa upp dörren genom att svara en gåta.";
+    btnForward.onclick = riddle;
+}
+function riddle() {
+    text.innerHTML ="Hur många gånger kan man subtrahera siffran 1 från 1111? Svara inte med bokstäver."
+    
+        riddleInput = document.createElement('INPUT');
+        riddleInput.setAttribute('type', 'text', 'class', 'riddleinput');
+        text.appendChild(riddleInput);
+        btnForward.innerText = "Svara";
+        btnForward.onclick = checkAnswer;
+
+        function checkAnswer() {
+            riddleAnswer = riddleInput.value;
+            if (riddleAnswer == 1) {
+                end();
+            } else {
+                wrong;
+            }
+            function wrong() {
+                text.innerHTML ="FEL!"
+                setTimeout(function() {
+                    riddle();
+                }, 2000);
+            }
+        }
+    
+}
+function end() {
+    hideForward();
+    hideAllBtns();
+    if (chocoBath === true) {
+        text.innerHTML = "Grattis! Du är ute! Du är också naken och täckt av lagom intorkad choklad. Sedär! Den smakar fortfarande helt okej. Då är det bara att börja vandra hemåt.";
+    } else {
+    text.innerHTML = "Grattis! Du är ute! Du är också fortfarande hög på sockervadd. Lycka till med vandringen hemåt."
+    }
+    
+}

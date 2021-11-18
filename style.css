@@ -68,6 +68,17 @@ button:hover {
 .btntextcontainer {
     margin-bottom: 1rem;
 }
+input {
+    border-radius: 0;
+    width: 50px;
+    border: 2px solid #000;
+    background-color: #999;
+}
+input:focus {
+    outline: none;
+    border: 2 px solid black;
+}
+
 
 
 .flex {display: flex;}
