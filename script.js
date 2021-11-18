@@ -5,9 +5,9 @@ let btn1 = document.getElementById('btn1');
 let btn2 = document.getElementById('btn2');
 let btn3 = document.getElementById('btn3');
 
-let btn1Text = document.getElementById('btn1Text');
-let btn2Text = document.getElementById('btn2Text');
-let btn3Text = document.getElementById('btn3Text');
+// let btn1Text = document.getElementById('btn1Text');
+// let btn2Text = document.getElementById('btn2Text');
+// let btn3Text = document.getElementById('btn3Text');
 let btnForward = document.getElementById('btnForward');
 
 let ageInput;
@@ -17,12 +17,12 @@ let firstname;
 let text2;
 let polkagris;
 let chocoBath;
+let noChocobath;
 let high;
 let stuck;
 
 
 const allBtns = [btn1, btn2, btn3];
-const allSpans = [btn1Text, btn2Text, btn3Text];
 btnForward.innerHTML = "Fortsätt";
 
 
@@ -100,16 +100,10 @@ function introduction() {
 
         text2 = document.createElement('span');
         text.appendChild(text2);
-        text2.innerHTML =" och funderar över xx. Mitt uppe i ditt misära grubblande blir du avbruten av att telefonen börjar surra ";
+        text2.innerHTML =" och du funderar över om tillvaron kommer vara lika medioker som den varit hittills. Mitt uppe i ditt misära grubblande blir du avbruten av att telefonen börjar surra ";
         btnForward.onclick = phonecall;
     }
-    // function saveValue() {
-    //     // age = document.getElementById('intro4Text').value;
-    //     phonecall();
-    // }
     function phonecall() {
-        // text2.style.display = 'none';
-        // age.style.display = 'none';
         age = ageInput.value;
         text.innerHTML = "Du tar upp telefonen och ser ett nummer du inte känner igen. Säkert en telefonförsäljare. Med en bitter underton svarar du: 'Hallå? De e "
 
@@ -144,67 +138,54 @@ function introduction() {
 function room1() {
     wakingUp();
     showForward();
-// const input = document.querySelector('input').value;
-// input.value = ""
     function wakingUp() {
-        text.innerText = "Du vaknar till liv. Dina tankar börjar frenetiskt arbeta med att erinra sig händelseförloppet som förde dig hit. VÄNTA. Vart är jag?  Du öppnar långsamt ögonen. Vilket visar sig vara fullkomligt onödigt för det är kolsvart runt omkring dig, med undantag för suddiga konturer av… ja, vadå? Du börjar ta in miljön omkring. Marken under dig är mjuk-, eller nej. Fluffig är ett bättre ord. Marken är fluffig";   
+        text.innerText = " ca 37 timmar senare vaknar du till liv. Huvudet bankar hårt med gårdagen dumma beslut. Dina tankar börjar frenetiskt arbeta med att erinra sig händelseförloppet som förde dig hit. VÄNTA. Vart är jag?  Du öppnar långsamt ögonen. Vilket visar sig vara fullkomligt onödigt för det är kolsvart runt omkring dig, med undantag för suddiga konturer av… ja, vadå? Du börjar ta in miljön omkring. Marken under dig är mjuk-, eller nej. Fluffig är ett bättre ord. Marken är fluffig";   
     }
     btnForward.onclick = room2;
-
-    // function showBtnForward() {
-    //     setTimeout(function() {
-    //         btnForward.style.display = 'block';
-    //     }, 2000);
-    //     btnForward.onclick = room2;
-    // }
 }
 
 function room2() {
-    hideForward();
-    // btnForward.style.display = null;
-    text.innerText = "Du ser dig omkring";
-    
-    showAllBtns();
-    btn1.innerHTML = "Choklad";
-    // btn2.innerHTML = "Gräs";
-    btn3.innerHTML = "Träd";
+ hideAllBtns();
+ hideForward();
+ // btn3.style.display = 'none';
+ btn1.innerText = "ena hållet"; // chocklad
+ btn2.innerText = "andra hållet"; // träd
 
- 
-    btn1.onclick = roomChoco;
-    // btn2.onclick = roomWeed;
-    btn3.onclick = roomTree;
-}
-// function roomWeed() {
-//     text.innerHTML = ""
-// }
-function roomChoco() {
-    hideForward();
-    // btnForward.style.display = 'none';
-    text.innerText= "Du närmar dig något som ser ut att vara ett svart hål, som en grop av något slag. Fast, nej. Det mörkfärgade gapet är inte tomt. Tvärtom, det verkar vara fyllt av något kompakt, lent och sötdoftande. Tillslut är du såpas nära att du skulle kunna ta ett skutt och dyka ner, i chokladen. Det är en pool av smält choklad. Efter att ögonen vant sig vid det dunkla ljuset lägger du även märke till att på chokladpoolens andra kant hänger det en stege, som leder rakt ner i sörjan." ;
-    
-
-    for(var i = 0; i < allBtns.length; i++){
-        allBtns[i].style.display = null;
+    if (noChocobath === true) {
+        text.innerHTML = ".. och väljer istället att gå åt...";
+        btn2.style.display = 'block';
+    } else {
+    text.innerText = "Med mycket möda reser du dig upp. Du inser att planen på att ta dig hem kan bli svårare än var du hade hoppats. Du bestämer dig för att försöka hitta en väg ut. Du börjar knata iväg åt.. ";
+    showTwoBtns();
     }
-    showForward();
-    // setTimeout(function() {
-    //     btnForward.style.display = 'inline-block';
-    //     }, 2000);
+  
 
+    btn1.onclick = roomChoco;
+    btn2.onclick = roomTree;
+}
+function roomChoco() {
+    showForward();
+    hideAllBtns();
+    text.innerText= "Du närmar dig något som ser ut att vara ett svart hål, som en grop av något slag. Fast, nej. Det mörkfärgade gapet är inte tomt. Tvärtom, det verkar vara fyllt av något kompakt, lent och sötdoftande. Tillslut är du såpas nära att du skulle kunna ta ett skutt och dyka ner, i chokladen. Det är en pool av smält choklad. Efter att ögonen vant sig vid det dunkla ljuset lägger du även märke till att på chokladpoolens andra kant hänger det en stege, som leder rakt ner i sörjan." ;
+   
     btnForward.onclick = findsChocolatePool;
 
     function findsChocolatePool() { 
         hideForward();
-        // btnForward.style.display = 'none';
         showAllBtns();
         text.innerText= "Du slås av en impulsiv tanke att ta ett skutt rakt ner i det aptitretande badet men din rationella hjärnhalva säger stopp. Ett minne letar sig fram i ditt innre och du minns chokladfontänen du dröme om att ha på din 10e födelsedag. Den som alla 9åringar drömde om att ha på sin 10e födelsedag. Man kanske bara skulle smaka?";
         btn1.innerHTML = "Du böjer dig ner för att sörpla";
         btn2.innerHTML = "Du slänger av dig kläderna och gör dig redo för ett dyk";
         btn3.innerHTML = "Rädslan för det okända kryper sig på. Du går tillbaka";
     }
+
     btn1.onclick = slurping;
     btn2.onclick = bath;
-    btn3.onclick = room2;
+    btn3.onclick = noChoco;
+}
+function noChoco() {
+    noChocobath = true;
+    room2();
 }
 
 function slurping() {
@@ -227,7 +208,6 @@ function meetsOmpaLompa2() {
 }
 function hitBack() {
     hideForward();
-    // btnForward.style.display = 'none';
     showTwoBtns();
     
     btn1.innerHTML = "Tar polkagrisen och springer iväg";
@@ -238,7 +218,7 @@ function hitBack() {
     btn2.onclick = noPolka;
        
     function savePolka() {
-      polkagris = 1;
+      polkagris = true;
       backToStart();
     }
     function noPolka() {
@@ -248,7 +228,6 @@ function hitBack() {
 }
 function backToStart() {
     hideForward();
-    // btnForward.style.display = "none";
 
     if (chocoBath === true) {
         text.innerHTML = "Du tar dig tillbaka till samma plats där du tidigare vaknat. Naken, rädd, hungrig och bakfull. Du sätter dig ner under något som liknar ett träd men som doftar hallon. Du känner markens fluffighet mellan tårna. Hungern gör sig påmind och du väljer att...";
@@ -291,8 +270,10 @@ function roomWeed2() {
 }
 
 function roomTree() {
-    showForward();
+    btn1.style.display = 'none';
+    btn2.style.display = 'none';
     hideAllBtns();
+    showForward();
     text.innerHTML = "Några meter framför dig ser du något som påminner om ett träd, men kronan har inga löv. Istället finns där kluster av rosa små bollar. Ju närmare du kommer detso starkare känner du en syntetisk doft av hallon. Väl framme lägger du handen mot det som kan liknas vid en stam. Kladdigt. Från ingenstans känner du ett enormt begär av att smaka. Du försöker stå emot... Men kanske bara en liten bit.."
     btnForward.onclick = roomTree2;
 }
