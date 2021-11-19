@@ -138,14 +138,14 @@ function introduction() {
         }, 2000);
         
     }
-    /** end of introduction to story. Redirects user automatically after 2 seconds*/
+    /** end of introduction to story. Redirects user automatically after 3 seconds*/
     function conversationAnswer() {
         btnForward.style.display = null;
         text.innerHTML ="Du tänker 'fyfan va trist' sen svarar du 'absolut'"
 
         setTimeout(function() {
             room1();
-        }, 2000);
+        }, 3000);
     }
 }
 /** User wakes up in Factory */
@@ -363,6 +363,7 @@ function note() {
 }
 /** Riddle. Creates input for riddle answer. */
 function riddle() {
+    hideAllBtns();
     text.innerHTML ="Hur många gånger kan man subtrahera siffran 1 från 1111? Svara inte med bokstäver."
     
         riddleInput = document.createElement('INPUT');
@@ -378,7 +379,7 @@ function riddle() {
             if (riddleAnswer == 1) {
                 end();
             } else {
-                wrong;
+                wrong();
             }
             /** If users answer is incorrect. Only shows story text of 'wrong'. After 2 seconds user gets automatically redirectd back to riddle */
             function wrong() {
