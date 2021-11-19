@@ -1,33 +1,26 @@
 :root {
     --text-max-width: 40rem;
 }
-
 body {
     background-color: #333;
     color: #EEE;
     height: 100vh;
     font-family: monospace, sans-serif;
     font-size: 20px;
-    
 }
-
 .container {
     width: 40rem;
     height: 30rem;
 }
-
 .text-container {
     flex-direction: column;
     width: var(--text-max-width);
-    height: 20rem;
-    
+    height: 20rem; 
 }
 p {
     max-width: var(--text-max-width);
     text-align: center;
-    height: 100%;
-    /* display: inline; */
-    
+    height: 100%;  
 }
 button {
     border: #000 solid 2px;
@@ -35,11 +28,8 @@ button {
     max-height: 60px;
     min-height: 50px;
     min-width: 100px;
-    /* border-radius: 50px; */
-    /* display: none;  */
     font-family: monospace;
-    margin: 0 2rem 0 2rem;
-      
+    margin: 0 2rem 0 2rem;  
 }
 button:hover {
     background-color: rgba(0, 0, 0, 0.276);
@@ -55,15 +45,12 @@ button:hover {
     font-size: 14px;
     text-align: center;
 }
-.btn1text {
+.btn1text, .btn3text {
     width: 10rem;
 }
 .btn2text {
     width: 10rem;
     margin: 0 50px 0 50px;
-}
-.btn3text {
-    width: 10rem;
 }
 .btntextcontainer {
     margin-bottom: 1rem;
@@ -79,12 +66,11 @@ input:focus {
     border: 2 px solid black;
 }
 
-
+/*----reusables-----*/
 
 .flex {display: flex;}
 .flex-column {flex-direction: column;}
 .align-center {align-items: center;}
 .align-end {align-items: flex-end;}
 .justify-center {justify-content: center;}
-.border {border: solid white 2px}
 .hidden {display: none;}
